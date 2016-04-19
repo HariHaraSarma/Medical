@@ -78,11 +78,13 @@ WSGI_APPLICATION = 'Medical.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER':'postgres',
-        'PASSWORD':'denee225522',
+        'HOST': 'pellefant-02.db.elephantsql.com',
+        'NAME': 'wslhpuqc',
+        'USER':'wslhpuqc',
+        'PASSWORD':'bO5_HhfdF6E1utJw-SLYj6bFwbQgdS-u',
     }
 }
+
 
 
 
