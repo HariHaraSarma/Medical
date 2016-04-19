@@ -1,0 +1,36 @@
+PostGreSQL:
+---------------
+	Installation:
+	-------------------
+	1. Download the PostGreSQL for your OS version from below link.
+		"http://www.postgresql.org/download/windows/"
+	2. Install the file, and select locale as "English-India".
+	3. Unselect Launch Stack Builder at exist.
+	4. Installation Done.......!!!!!!!!!
+
+
+	Usage:
+	-------------------
+	1. Open "pgadmin|||" from command promt(By typing pgadin3).
+	2. Do install "psycopg2" module by running below command.
+		"pip install psycopg2"
+	3. Set Database properties as below.
+		DATABASES = {
+    				'default': {
+        			'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        			'NAME': 'postgres',
+        			'USER': 'postgres',
+        			'PASSWORD': 'Set Your Password',
+    					}
+				}
+	4. This password will be generated when you have used pgadmin for first time. Shown in attached image.
+	5. To generate password, double click on "postgres" button shown in image........
+
+
+That's it.......!!!! Try to create a Django project  and create a database by running below command.
+
+
+Install Django1.9 version, then work on it.....
+
+python manage.py makemigrations
+python manage.py migrate
