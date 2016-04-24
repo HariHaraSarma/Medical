@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from APP import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.load_homepage),
+    url(r'^load_data_from_xls$', views.load_data_from_xls),
 ]
