@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Item Details</title>
+	</head>
+	<body>
+		<!--<form action="/add_an_item/" method="POST">
+			{% csrf_token %}-->
+			<table BORDER="1">
+				<tr>
+					<th>Company</th>
+					<th>Itemname</th>
+					<th>Batch num</th>
+					<th>Manufacture Date</th>
+					<th>Expired Date</th>
+					<th>Quantity</th>
+					<th>PPU</th>
+					<th>Margin</th>
+					<th>Dealer</th>
+					<th>Description</th>
+				</tr>
+				
+				<tr>
+					<td><input type = 'text' name= 'company' value="{{data.company_name}}"/> </td>
+					<td><input type = 'text' name="item_name" value="{{data.item_name}}" /> </td>
+					<td><input type = 'text' name="batch_number" value="{{data.batch_no}}" /> </td>
+					<td><input type = 'text' name='manf_date' value="{{data.mfg_date}}" /> </td>
+					<td><input type = 'text' name="exp_date" value="{{data.exp_date}}"/> </td>
+					<td><input type = 'text' name="quantity" value="{{data.present_stock}}" /> </td>
+					<td><input type = 'text' name="ppu" value="{{data.org_price}}" /> </td>
+					<td><input type = 'text' name="margin" value="{{data.margin_price}}" /> </td>
+
+					<td>
+						<input type="text" name="dealer_name" value="{{dealer_name}}">
+						<!--<select name='dealer_name'>
+							{% for name in dealer_names %}
+								<option>{{name}}</option>
+							{% endfor %}
+						</select>-->
+					</td>
+					<td><input type = 'text' name="desc" value="{{data.description}}" /> </td>
+				</tr>
+			</table>
+			<!--<input type = 'submit' value = 'Add Item' />-->
+		<!--</form>-->
+	</body>
+</html>
