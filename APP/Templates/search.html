@@ -6,7 +6,18 @@
 				<tr><td colspan="2" align="center"><font color="red" size="10"> OR</font></td></tr>
 				<tr><td>Enter Batch Number</td><td><input type="text" name='bt_no'></td></tr>
 				<tr><td colspan="2" align="center"><font color="red" size="20"> OR</font></td></tr>
-				<tr><td>Enter Company Name</td><td><input type="text" name='comp_name'></td></tr>
+				
+				<tr>
+					<td>Enter Company Name</td>
+					<td>
+						<select name='comp_name'>
+							<option></option>
+							{% for comp_name in comp_names %}
+								<option>{{comp_name}}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
 				<tr><td colspan="2" align="center"><input type="submit" value="Search"></td></tr>
 			</table>
 		</form>

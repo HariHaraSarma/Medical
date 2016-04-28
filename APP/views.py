@@ -63,7 +63,12 @@ def add_new_item(request):
     return HttpResponse("Added one recored Successfully", RequestContext(request))
 
 def search_page(request):
-    return render(request, 'search.html')
+    import pdb
+    pdb.set_trace()
+    objs = MedicineDetails.objects.all()
+    return render_to_response('search.html',
+                              {'comp_names': set([obj.company_name for obj in objs])},
+                              context_instance=RequestContext(request))
 
 def search_for_item(request):
     import pdb
