@@ -20,7 +20,8 @@
 					<th>Dealer</th>
 					<th>Description</th>
 				</tr>
-				
+				{% for data in objs %}
+
 				<tr>
 					<td><input type = 'text' name= 'company' value="{{data.company_name}}"/> </td>
 					<td><input type = 'text' name="item_name" value="{{data.item_name}}" /> </td>
@@ -32,7 +33,7 @@
 					<td><input type = 'text' name="margin" value="{{data.margin_price}}" /> </td>
 
 					<td>
-						<input type="text" name="dealer_name" value="{{dealer_name}}">
+						<input type="text" name="dealer_name" value="{{data.dealer.get_dealer_details.name}}">
 						<!--<select name='dealer_name'>
 							{% for name in dealer_names %}
 								<option>{{name}}</option>
@@ -41,6 +42,7 @@
 					</td>
 					<td><input type = 'text' name="desc" value="{{data.description}}" /> </td>
 				</tr>
+				{% endfor %}
 			</table>
 			<!--<input type = 'submit' value = 'Add Item' />-->
 		<!--</form>-->

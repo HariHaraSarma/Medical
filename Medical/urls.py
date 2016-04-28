@@ -24,6 +24,5 @@ urlpatterns = [
     url(r'^load_add_item_page/', views.load_add_item_page),
     url(r'^$', views.search_page),
     url(r'^add_an_item/', views.add_new_item),
-    url(r'search_by_item_name', views.search_by_item_name),
-    url(r'^search_by_batch_number/', views.search_by_batch_number)
+    url(r'search_for_item', views.search_for_item),
 ]

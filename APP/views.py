@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response, render
 from APP.models import MedicineDetails, DealerDetails
 from django.db.models import Q
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from datetime import datetime
 from django.template import RequestContext
 
@@ -65,21 +65,38 @@ def add_new_item(request):
 def search_page(request):
     return render(request, 'search.html')
 
-def search_by_item_name(request):
+def search_for_item(request):
     import pdb
     pdb.set_trace()
-    try:
-        obj = MedicineDetails.objects.get(item_name=str(request.GET.get('it_name')))
-        return render_to_response('show.html', {'data': obj, 'dealer_name': obj.dealer.get_dealer_details.name})
-    except:
-      return HttpResponse('Record Not available')
+    data = request.GET
+    if str(data.get('it_name')) and str(data.get('bt_no')) and not str(data.get('comp_name')):
+        try:
+            objs = MedicineDetails.objects.filter(Q(item_name=str(data.get('it_name'))) & Q(batch_no=int(str(data.get('bt_no')))))
+        except:
+            return HttpResponseRedirect('/')
+    elif str(data.get('it_name')) and not str(data.get('bt_no')) and not str(data.get('comp_name')):
+        try:
+            objs = MedicineDetails.objects.filter(item_name=str(data.get('it_name')))
+        except:
+            return HttpResponseRedirect('/')
+    elif str(data.get('bt_no')) and not str(data.get('it_name')) and not str(data.get('comp_name')):
+        try:
+            objs = MedicineDetails.objects.filter(batch_no=int(str(data.get('bt_no'))))
+        except:
+            return HttpResponseRedirect('/')
+    elif str(data.get('comp_name')) and not str(data.get('bt_no')) and not str(data.get('it_name')):
+        try:
+            objs = MedicineDetails.objects.filter(company_name=str(data.get('comp_name')))
+        except:
+            return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/')
 
+    if len(objs) > 0:
+      return render_to_response('show.html',
+                                {'objs': objs},
+                                context_instance=RequestContext(request))
+    else:
+      return HttpResponseRedirect('/')
 
-def search_by_batch_number(request):
-    import pdb
-    pdb.set_trace()
-    try:
-        obj = MedicineDetails.objects.get(batch_no=int(request.GET.get(str('bt_no'))))
-        return render_to_response('show.html', {'data': obj, 'dealer_name': obj.dealer.get_dealer_details.name}, context_instance=RequestContext(request))
-    except:
-      return HttpResponse('Record Not available')
+# 'dealer_name': obj.dealer.get_dealer_details.name},
