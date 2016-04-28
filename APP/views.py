@@ -103,5 +103,5 @@ def search_for_item(request):
 
 def show_complete_stock(request):
     objs=MedicineDetails.objects.all()
-    return render to response('show.html',{'objs': objs},
+    return render_to_response('show.html', {'objs': objs},
                               context_instance=RequestContext(request))
