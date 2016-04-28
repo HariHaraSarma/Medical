@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^$', views.search_page),
     url(r'^add_an_item/', views.add_new_item),
     url(r'search_for_item', views.search_for_item),
+    url(r'^show_complete_stock/', views.show_complete_stock),
 ]

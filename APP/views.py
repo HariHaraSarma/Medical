@@ -100,3 +100,8 @@ def search_for_item(request):
       return HttpResponseRedirect('/')
 
 # 'dealer_name': obj.dealer.get_dealer_details.name},
+
+def show_complete_stock(request):
+    objs=MedicineDetails.objects.all()
+    return render to response('show.html',{'objs': objs},
+                              context_instance=RequestContext(request))
