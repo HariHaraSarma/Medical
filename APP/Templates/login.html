@@ -1,0 +1,17 @@
+<script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+<script type="text/javascript">
+  
+  var lock = new Auth0Lock('ZZWwCbW6i3CJjYdt0hi6iTYXOSvTPiz5', 'mydjango.auth0.com');
+  
+  
+  function signin() {
+    lock.show({
+        callbackURL: 'http://127.0.0.1:8000/search/'
+      , responseType: 'code'
+      , authParams: {
+        scope: 'openid profile'
+      }
+    });
+  }
+</script>
+<button onclick="window.signin();">Login</button>
